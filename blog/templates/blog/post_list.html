@@ -5,22 +5,15 @@
     <body>
         <div>
             <h1><a href="/">Blog Django Girls</a></h1>
-        </div>
+        </div>   
 
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu primeiro post</a></h2>
-            <p> Hoje na solidão ainda custo<br>
-                A entender como o amor foi tão injusto<br>
-                Pra quem só lhe foi dedicação</p>
-        </div>
-
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu segundo post</a></h2>
-            <p>...Saudade é amar um passado que ainda não passou,<br>
-                É recusar um presente que nos machuca,<br>
-                É não ver o futuro que nos convida...</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>publicado em: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+            
     </body>
 </html>
